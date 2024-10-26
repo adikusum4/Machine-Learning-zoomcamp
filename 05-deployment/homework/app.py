@@ -19,5 +19,13 @@ def predict():
     probability = model.predict_proba(X)[0, 1]
     return jsonify({"probability": probability})
 
+@app.route('/')
+def home():
+    return "Welcome to the Flask app!"
+
+#@app.route('/api/some_endpoint', methods=['GET'])
+#def some_endpoint():
+#    return jsonify({"message": "This is a response from some_endpoint!"})
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=9696)
