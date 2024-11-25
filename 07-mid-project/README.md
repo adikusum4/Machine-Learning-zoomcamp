@@ -58,6 +58,3 @@ This project includes a `Dockerfile` for containerization. To build and run the 
    docker run -it --rm my-ml-app python predict.py
    ```
 
-After running the container, the Flask app will be accessible at [http://localhost:9696](http://localhost:9696/).
-
-Enjoy using the project at `/07-mid-project/notebook.ipynb`.
