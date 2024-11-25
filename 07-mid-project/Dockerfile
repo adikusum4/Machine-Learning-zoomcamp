@@ -1,21 +1,24 @@
-# Use an official Python runtime as a parent image
-FROM python:3.12-slim
+# Gunakan Python resmi
+FROM python:3.9-slim
 
-# Set the working directory in the container
+# Install necessary dependencies
+RUN pip install numpy pandas 
+RUN pip install scikit-learn
+
+# Set direktori kerja dalam container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Salin Pipfile dan Pipfile.lock ke container
+COPY Pipfile Pipfile.lock ./
 
-# Install any needed packages specified in Pipfile
-RUN pip install pipenv && pipenv install --deploy --ignore-pipfile
+# Instal Pipenv dan dependensi
+RUN pip install --no-cache-dir pipenv && pipenv install --system --deploy
 
-# Expose port 5000
+# Salin semua file proyek ke dalam container
+COPY . .
+
+# Ekspose port (untuk Flask, jika diperlukan)
 EXPOSE 5000
 
-# Set environment variables for Flask
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
-# Run the Flask app when the container launches
-CMD ["pipenv", "run", "flask", "run"]
+# Perintah default (ubah sesuai kebutuhan)
+CMD ["python", "train.py"]
