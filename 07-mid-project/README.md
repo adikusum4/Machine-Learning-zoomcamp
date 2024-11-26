@@ -42,34 +42,6 @@ Two datasets are combined in this project: "Air Quality" and "Asthma Prevalence.
 
 Note: This project uses data from the first dataset for 2018 - 2020, as it provides better results when matched with the 2018 - 2020 data from the second dataset. This suggests that changes in air quality impact asthma prevalence in the following year.
 
-### Environment Setup and Execution
-
-To install the required dependencies and set up the environment on Linux, execute:
-
-```bash
-# Install dependencies
-pipenv install scikit-learn==1.0 numpy flask gunicorn
-
-# Run the Flask app with gunicorn
-pipenv run gunicorn --bind 0.0.0.0:9696 predict:app
-```
-
-Alternatively, for a better user interface, you can use Jupyter Notebook:
-
-```bash
-# Start Jupyter notebook
-jupyter-notebook
-```
-
-To clone the project repository from GitHub:
-
-```bash
-# Clone the repository
-git clone https://github.com/adikusum4/Machine-Learning-zoomcamp/new/main/07-mid-project.git
-```
-
-Once the repository is cloned, open the Jupyter Notebook interface by visiting [http://localhost:8888/](http://localhost:8888/) in your browser.
-
 ### Containerization and Execution
 
 This project includes a `Dockerfile` for containerization. To build and run the Docker container, follow these steps:
@@ -77,15 +49,12 @@ This project includes a `Dockerfile` for containerization. To build and run the 
 1. Build the Docker container:
 
    ```bash
-   sudo docker build -t predict .
+   docker build -t my-ml-app
    ```
 
 2. Run the container:
 
    ```bash
-   sudo docker run -it --rm -p 9696:9696 predict
+   docker run -it --rm my-ml-app python predict.py
    ```
 
-After running the container, the Flask app will be accessible at [http://localhost:9696](http://localhost:9696/).
-
-Enjoy using the project at `/07-mid-project/notebook.ipynb`.
