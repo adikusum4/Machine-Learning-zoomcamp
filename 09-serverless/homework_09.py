@@ -13,7 +13,7 @@ from urllib import request
 from PIL import Image
 
 
-MODEL_NAME = os.getenv('MODEL_NAME', 'dino-vs-dragon-v2.tflite')
+MODEL_NAME = os.getenv('MODEL_NAME', 'model_2024_hairstyle.tflite')
 
 
 def download_image(url):
@@ -46,7 +46,7 @@ output_index = interpreter.get_output_details()[0]['index']
 
 def predict(url):
     img = download_image(url)
-    img = prepare_image(img, target_size=(150, 150))
+    img = prepare_image(img, target_size=(200, 200))
 
     x = np.array(img, dtype='float32')
     X = np.array([x])
