@@ -1,8 +1,8 @@
 import requests
 
-url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
+url = 'http://localhost:8888/2024-12-11/functions/function/invocations'
 
-data = {'url': 'https://upload.wikimedia.org/wikipedia/en/e/e9/GodzillaEncounterModel.jpg'}
+data = {'url': 'https://habrastorage.org/webt/yf/_d/ok/yf_dokzqy3vcritme8ggnzqlvwa.jpeg'}
 
 result = requests.post(url, json=data).json()
 print(result)
