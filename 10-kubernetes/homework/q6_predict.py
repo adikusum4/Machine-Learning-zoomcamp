@@ -11,7 +11,7 @@ def load(filename: str):
 
 
 dv = load('dv.bin')
-model = load('model2.bin')
+model = load('model1.bin')
 
 app = Flask('has-subscribed')
 
