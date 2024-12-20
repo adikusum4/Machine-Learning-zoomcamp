@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subscription
+spec:
+  selector:
+    matchLabels:
+      app: subscription
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: subscription
+    spec:
+      containers:
+      - name: subscription
+        image: zoomcamp-model:3.11.5-hw10  # or the correct image name if needed
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"  # example memory limit, adjust as needed
+            cpu: "250m"  # example CPU limit, adjust as needed
+        ports:
+        - containerPort: 9696  # replace with correct port
