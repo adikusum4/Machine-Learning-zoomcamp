@@ -1,0 +1,13 @@
+Flask
+gunicorn
+pipenv
+virtualenv
+pandas
+numpy
+scikit-learn
+xgboost
+catboost
+lightgbm
+seaborn
+matplotlib
+optuna
