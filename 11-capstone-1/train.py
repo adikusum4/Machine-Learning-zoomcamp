@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_sc
 from sklearn.linear_model import LinearRegression, Lasso, Ridge, ElasticNet, BayesianRidge, HuberRegressor
 from sklearn.tree import DecisionTreeRegressor, export_text
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, AdaBoostRegressor, ExtraTreesRegressor
-from xgboost import XGBRegressor
+#from xgboost import XGBRegressor
 from sklearn.svm import SVR
 from sklearn.neighbors import KNeighborsRegressor
 from catboost import CatBoostRegressor
@@ -232,8 +232,13 @@ def objective_catboost(trial):
     rmse = np.sqrt(mean_squared_error(y_val, y_pred))
     return rmse
 
+# Create study with TPESampler and fixed seed
+study_catboost = optuna.create_study(
+    direction='minimize', 
+    sampler=optuna.samplers.TPESampler(seed=42)  # Set seed here
+)
+
 # Run Optuna for CatBoost
-study_catboost = optuna.create_study(direction='minimize')  # Minimize RMSE
 study_catboost.optimize(objective_catboost, n_trials=50)
 
 # Best results for CatBoost

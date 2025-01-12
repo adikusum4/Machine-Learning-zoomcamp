@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pandas = "*"
+numpy = "*"
+scikit-learn = "*"
+catboost = "*"
+lightgbm = "*"
+seaborn = "*"
+matplotlib = "*"
+optuna = "*"
+tqdm = "*"
+ipykernel = "*"
+jupyter = "*"
+pipenv = "*"
+
+[requires]
+python_version = "3.12"
