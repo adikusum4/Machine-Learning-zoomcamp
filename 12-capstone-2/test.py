@@ -22,8 +22,15 @@ patient = {'gender' : 'Male',
            #'obesity_level': 'Normal_Weight'
            }
 
-print(requests.post(url, json=patient).json())
 
+print("Sending request to server...")
+response = requests.post(url, json=patient)
+print("Request sent!")
+
+print(response.json())
+print(response.text)
+
+#print(requests.post(url, json=patient).json())
 #response = requests.post(url, json=home).json()
 #print()
 

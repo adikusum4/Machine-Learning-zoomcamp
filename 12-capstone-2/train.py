@@ -76,7 +76,7 @@ sample_full_weights = compute_sample_weight(
     class_weight=class_full_weight,
     y=y_full_train
 )
-cbc = CatBoostClassifier(loss_function = 'MultiClass',
+final_catboost = CatBoostClassifier(loss_function = 'MultiClass',
                         #eval_metric='AUC',
                         iterations = 434,  #10000,
                         depth = 4, #6,
@@ -95,7 +95,7 @@ cbc = CatBoostClassifier(loss_function = 'MultiClass',
                         verbose = True)
 
 if __name__ == "__main__":
-    cbc.fit(X_full_train, y_full_train, sample_weight=sample_full_weights, eval_set=(X_test, y_test))
+    final_catboost.fit(X_full_train, y_full_train, sample_weight=sample_full_weights, eval_set=(X_test, y_test))
 
-    with open('obesity-levels-model.bin', 'wb') as f_out:
-        cloudpickle.dump((pipe, le, cbc), f_out)
+    with open('obesity-levels-model_catboost.bin', 'wb') as f_out:
+        cloudpickle.dump((pipe, le, final_catboost), f_out)
