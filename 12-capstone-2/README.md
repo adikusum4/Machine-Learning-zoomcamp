@@ -178,8 +178,3 @@ url = "http://localhost:9696/predict"
      ```
 
 ---
-
-This version should make the steps clearer and more approachable.
----
-
-This should be more accessible and clear for users who are deploying remotely.
