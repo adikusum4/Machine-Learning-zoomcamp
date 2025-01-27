@@ -120,6 +120,12 @@ url = "http://localhost:9696/predict"
 
 ## Running the Project Remotely
 
+**Test my application:**
+   - First, log in to GitHub, open your Codespace and run:
+     ```bash
+     python test_railway.py
+     ```
+
 ### Remote Deployment with Docker and Railway
 
 1. **Prepare Your Environment:**
@@ -157,12 +163,23 @@ url = "http://localhost:9696/predict"
        railway up
        ```
 
-6. **Test the Deployment:**
-   - Once the deployment is finished, run the following command to test your application:
+6. **Update Your Project URL:**
+   - Once the deployment is finished, go to your project on [Railway.com](https://railway.com/).
+   - Navigate to the **Settings** section of your project and click on **Generate Public Networking**.
+   - Copy the generated link and update the `url` variable in the [test_railway.py](https://github.com/adikusum4/Machine-Learning-zoomcamp/blob/main/12-capstone-2/test_railway.py) file to the copied link:
+     ```python
+     url = "<your copied link>"
+     ```
+
+7. **Test the Deployment:**
+   - After updating the URL, run the following command to test if your application is working:
      ```bash
      python test_railway.py
      ```
 
+---
+
+This version should make the steps clearer and more approachable.
 ---
 
 This should be more accessible and clear for users who are deploying remotely.
