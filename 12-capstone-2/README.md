@@ -2,7 +2,7 @@
 
 This repository was created as part of [the DataTalks.Club's Machine Learning Zoomcamp](https://github.com/alexeygrigorev) by [Alexey Grigorev](https://github.com/alexeygrigorev).
 
-This project was submitted as a Midterm Project for the course.
+This project was submitted as a Project Capstone 2 for the course.
 
 ## Introduction
 
