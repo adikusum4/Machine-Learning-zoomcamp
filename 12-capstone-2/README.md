@@ -107,3 +107,59 @@ Run the container:
 ```bash
 docker run -p 9696:9696 -it estimation-obesity-levels:latest
 ```
+Here's the revised, user-friendly version of the instructions:
+
+Test the Deployment:
+   - Once the deployment is finished, run the following command to test your application:
+     ```bash
+     python test.py
+     ```
+
+## Running the Project Remotely
+
+### Remote Deployment with Docker and Railway
+
+1. **Prepare Your Environment:**
+   - First, log in to GitHub and open your Codespace.
+
+2. **Sign up or Log in to Railway:**
+   - Visit [https://railway.com/](https://railway.com/) and sign up or log in.
+
+3. **Install Railway CLI in Your Codespace:**
+   - In the terminal, run the following commands to install the Railway CLI:
+     ```bash
+     npm install -g railway
+     npm uninstall -g railway
+     npm install -g @railway/cli
+     ```
+
+4. **Login to Railway:**
+   - After installing the Railway CLI, log in by running:
+     ```bash
+     railway login
+     ```
+   - This will open a browser for authentication. Follow the prompts to log in.
+
+5. **Continue with the Deployment:**
+
+   - **Initialize Your Project:**
+     - In the terminal, run:
+       ```bash
+       railway init
+       ```
+
+   - **Deploy Your Application:**
+     - To deploy your application, run:
+       ```bash
+       railway up
+       ```
+
+6. **Test the Deployment:**
+   - Once the deployment is finished, run the following command to test your application:
+     ```bash
+     python test_railway.py
+     ```
+
+---
+
+This should be more accessible and clear for users who are deploying remotely.
