@@ -4,11 +4,19 @@ This repository was created as part of [the DataTalks.Club's Machine Learning Zo
 
 This project was submitted as a Project Capstone 2 for the course.
 
+---
+
 ## Introduction
 
-Obesity is a pressing global issue. An individual’s eating habits and physical condition can reveal crucial insights into their overall health. Poor dietary practices combined with insufficient physical activity often lead to obesity, which can result in severe health complications, sometimes even fatal ones.
+Obesity is a pressing global issue, contributing significantly to numerous health problems such as heart disease, diabetes, and certain cancers. An individual's eating habits and physical condition play a crucial role in determining their overall health. Poor dietary practices combined with insufficient physical activity are key factors that often lead to obesity, which in turn can result in severe health complications, sometimes even fatal ones. Early identification and prevention of obesity are vital to improving public health outcomes.
 
-This project uses data from individuals in Colombia, Peru, and Mexico, sourced from the [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition). The dataset consists of 17 attributes across 2,111 records, with each record classified based on the `NObesity` variable (Obesity Level). The classification categories are:  
+### What is the problem?
+
+The problem lies in effectively predicting obesity levels in individuals based on their eating habits and physical condition. With the rise in obesity rates worldwide, it has become increasingly important to develop systems that can assess obesity risk in a timely and accurate manner. However, many people are unaware of their risk until it's too late, often because they lack the necessary data or tools to monitor their health effectively.
+
+### How does the solution work?
+
+This project aims to address this problem by developing a machine learning model that classifies obesity levels based on data from individuals in Colombia, Peru, and Mexico. By analyzing key attributes related to eating habits and physical activity, the model can predict the likelihood of an individual being overweight or obese. The dataset used in this project comes from the [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition), consisting of 17 attributes across 2,111 records. Each record is classified based on the `NObesity` variable (Obesity Level), which includes the following categories:
 + Insufficient Weight  
 + Normal Weight  
 + Overweight Level I  
@@ -17,7 +25,11 @@ This project uses data from individuals in Colombia, Peru, and Mexico, sourced f
 + Obesity Type II  
 + Obesity Type III  
 
-Approximately 77% of the dataset was generated synthetically using the Weka tool with the SMOTE filter, while the remaining 23% was collected from users via a web platform.
+To address potential imbalances in the dataset, 77% of the records were synthetically generated using the Weka tool with the SMOTE filter, while the remaining 23% were collected from actual users via a web platform. This combined approach ensures that the model has sufficient data to train and make accurate predictions.
+
+The solution involves building a predictive model using machine learning algorithms, which can help identify individuals at risk of obesity, thus enabling early intervention. By providing individuals with insights into their health based on their behaviors, this tool can play a significant role in managing and preventing obesity.
+
+--- 
 
 ## Downloading the Dataset
 
