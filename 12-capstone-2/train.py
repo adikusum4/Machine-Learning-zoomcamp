@@ -55,7 +55,7 @@ df = df.drop_duplicates()
 
 df_full_train, df_test = train_test_split(df, test_size=0.15, random_state=seed_value, stratify=df["obesity_level"])
 
-cols_drop = ["obesity_level"] #, "weight"]
+cols_drop = ["obesity_level"] 
 X_full_train, y_full_train = df_full_train.drop(cols_drop, axis=1), df_full_train["obesity_level"]
 X_test, y_test =  df_test.drop(cols_drop, axis=1), df_test["obesity_level"]
 
@@ -81,7 +81,7 @@ final_catboost = CatBoostClassifier(loss_function = 'MultiClass',
                         iterations = 434,  #10000,
                         depth = 4, #6,
                         classes_count = 7,
-                        class_weights = class_full_weight,
+                        #class_weights = class_full_weight,
                         learning_rate = 0.15000000000000002, #0.1,
                         l2_leaf_reg = 0.002473403654859812,
                         random_strength = 0.006477967147195818,
@@ -90,7 +90,7 @@ final_catboost = CatBoostClassifier(loss_function = 'MultiClass',
                         #od_type = 'Iter',
                         #early_stopping_rounds = 1000,
                         #bootstrap_type = 'MVS',
-                        sampling_frequency = 'PerTree',
+                        #sampling_frequency = 'PerTree',
                         random_seed = seed_value,
                         verbose = True)
 

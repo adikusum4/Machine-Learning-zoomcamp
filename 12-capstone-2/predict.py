@@ -1,7 +1,10 @@
 import cloudpickle
 import pandas as pd
 import numpy as np
-from flask import Flask, request, jsonify 
+import logging
+from flask import Flask, request, jsonify
+
+logging.basicConfig(level=logging.INFO)
 
 def predict_level(patient, pipe, le, final_catboost):
     patient = pd.DataFrame(data=patient, index=[0])
@@ -12,15 +15,26 @@ def predict_level(patient, pipe, le, final_catboost):
 with open('obesity-levels-model_catboost.bin', 'rb') as f_in:
     pipe, le, final_catboost = cloudpickle.load(f_in)
 
+print("Model, pipeline, and label encoder loaded successfully.")
+
 app = Flask('estimation-obesity-levels')
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    patient = request.get_json()
-    print(f"Received request: {patient}")
-    prediction = predict_level(patient, pipe, le, final_catboost)
-    print(f"Prediction Result: {prediction}")
-    result = {'obesity_level': str(prediction)}
+    try:
+        patient = request.get_json()
+        if not patient or 'gender' not in patient or 'age' not in patient or 'weight' not in patient:
+            result = {'error': 'Invalid input: Missing required fields'}
+            return jsonify(result), 400  # Bad Request
+
+        logging.info(f"Received request: {patient}")
+        prediction = predict_level(patient, pipe, le, final_catboost)
+        logging.info(f"Prediction Result: {prediction}")
+        result = {'obesity_level': str(prediction)}
+    except Exception as e:
+        logging.error(f"Error occurred: {e}")
+        result = {'error': str(e)}
+        return jsonify(result), 500  # Internal Server Error
     return jsonify(result)
 
 @app.route('/')

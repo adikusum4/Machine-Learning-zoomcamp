@@ -1,5 +1,4 @@
 import requests
-#url = "http://EstimationObesityLevels.us-east-1.elasticbeanstalk.com/predict"
 url = 'http://localhost:9696/predict'
 
 patient = {'gender' : 'Male', 
@@ -18,23 +17,24 @@ patient = {'gender' : 'Male',
            'tech_usage_hours' : 0.0, 
            'alcohol_consumption' : 'yes', 
            'transportation_mode' : 'Automobile', 
-           #'obesity_level
            #'obesity_level': 'Normal_Weight'
            }
 
 
-print("Sending request to server...")
-response = requests.post(url, json=patient)
-print("Request sent!")
+print("Sending request to the server...")
 
-print(response.json())
-print(response.text)
+try:
+    response = requests.post(url, json=patient)
+    print("Request sent successfully!")
+    print("Response status:", response.status_code)
 
-#print(requests.post(url, json=patient).json())
-#response = requests.post(url, json=home).json()
-#print()
+    if response.status_code == 200:
+        # If successful, display the JSON response
+        print("Response body:", response.json())
+    else:
+        # If it fails, display the error message from the server
+        print("Server returned an error:", response.text)
+except requests.exceptions.RequestException as e:
+    # If the server does not respond or there is a connection issue
+    print("An error occurred while sending the request:", str(e))
 
-#print('The estimated value of the home is ${:,.2f}'.format(response['home_price']))
-
-#pipenv install numpy pandas scikit-learn flask catboost waitress requests cloudpickle
-#pipenv install awsebcli --dev

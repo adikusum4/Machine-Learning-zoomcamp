@@ -1,4 +1,5 @@
-FROM python:3.11.10-slim
+#FROM python:3.11.10-slim
+FROM python:3.12.1
 
 ENV PYTHONUNBUFFERED=TRUE
 
