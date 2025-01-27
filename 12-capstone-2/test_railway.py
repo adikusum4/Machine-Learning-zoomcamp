@@ -1,6 +1,6 @@
 import requests
-#url = 'https://estimation-obesity-levels-production.up.railway.app/predict'
-url = 'http://localhost:9696/predict'
+url = 'https://estimation-obesity-levels-production.up.railway.app/predict'
+#url = 'http://localhost:9696/predict'
 
 patient = {'gender' : 'Male', 
            'age' : 18.0, 
