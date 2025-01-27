@@ -107,13 +107,16 @@ Run the container:
 ```bash
 docker run -p 9696:9696 -it estimation-obesity-levels:latest
 ```
-Here's the revised, user-friendly version of the instructions:
 
 Test the Deployment:
    - Once the deployment is finished, run the following command to test your application:
      ```bash
      python test.py
      ```
+Remember to update the `url` variable in [test.py](https://github.com/adikusum4/Machine-Learning-zoomcamp/blob/main/12-capstone-2/test.py) to:  
+```python
+url = "http://localhost:9696/predict"
+```
 
 ## Running the Project Remotely
 
